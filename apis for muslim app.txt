@@ -1,0 +1,18 @@
+islamic prayer times مواعيد الاذان 
+https://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=8
+
+السور 
+https://api.alquran.cloud/v1/surah/1 سورة كاملة
+
+https://api.alquran.cloud/v1/surah كل السور 
+
+التفسير 
+https://quranenc.com/api/v1/translation/sura/arabic_moyassar/114
+
+احاديث 
+https://hadis-api-id.vercel.app/hadith/abu-dawud?page=1&limit=50
+
+ادعية 
+https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json
+
+https://www.hisnmuslim.com/api/ar/27.json
