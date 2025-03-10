@@ -1,11 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:muslim/core/helper/cache_helper.dart';
 import 'package:muslim/core/utils/api_service.dart';
 import 'package:muslim/features/azkar/presentation/views/zekr_category_view.dart';
 import 'package:muslim/features/hadeth/data/models/hadeth_model.dart';
 import 'package:muslim/features/hadeth/presentation/views/hadeth_details_view.dart';
 import 'package:muslim/features/home/presentation/views/home_view.dart';
+import 'package:muslim/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:muslim/features/quran/data/models/surah_data_model.dart';
 import 'package:muslim/features/quran/data/repos/quran_repo_implement.dart';
 import 'package:muslim/features/quran/presentation/view_model/prayer_time_cubot/prayer_times_cubit.dart';
@@ -17,10 +19,21 @@ abstract class AppRouter {
   static const kSurahView = '/surah_view';
   static const kHadethDetailsView = '/hadeth_details_view';
   static const kZekrCategoryView = '/zekr_category_view';
+  static const kHomeView = '/home_view';
+  static const kOnboaringView = '/';
+
+  static final bool isFirstLaunch =
+      CacheHelper.getData(key: 'isFirstLaunch') ?? true;
+
   static final router = GoRouter(
+    initialLocation: isFirstLaunch ? kOnboaringView : kHomeView,
     routes: [
       GoRoute(
-        path: '/',
+        path: kOnboaringView,
+        builder: (context, state) => const OnBoardingView(),
+      ),
+      GoRoute(
+        path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(

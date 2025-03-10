@@ -1,6 +1,7 @@
 part of 'change_font_cubit.dart';
 
-sealed class ChangeFontState {}
+sealed class ChangeNotfiactionState {}
 
-final class ChangeFontInitial extends ChangeFontState {}
-final class ChangeFontSuccess extends ChangeFontState {}
+final class ChangeNotificationInitial extends ChangeNotfiactionState {}
+
+final class ChangeNotificationSuccess extends ChangeNotfiactionState {}

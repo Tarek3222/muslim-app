@@ -61,9 +61,9 @@ class PrayerTimesWidget extends StatelessWidget {
                   ),
                 ),
               ),
-             const Directionality(
+              const Directionality(
                 textDirection: TextDirection.ltr,
-                child:  DateAndTimeWidget(),
+                child: DateAndTimeWidget(),
               ),
             ],
           ),

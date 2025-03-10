@@ -1,7 +1,8 @@
-final List<String> kAzkarCategory=[
+final List<String> kAzkarCategory = [
   "أذكار الصباح",
   "أذكار المساء",
   "أذكار الاستيقاظ",
   "أدعية قرآنية",
-  "أدعية الأنبياء"
+  "أدعية الأنبياء",
+  "سبحة"
 ];

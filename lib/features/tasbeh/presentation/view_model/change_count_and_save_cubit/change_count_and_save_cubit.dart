@@ -1,27 +1,25 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:muslim/core/helper/cache_helper.dart';
 
 part 'change_count_and_save_state.dart';
 
 class ChangeCountAndSaveCubit extends Cubit<ChangeCountAndSaveState> {
   ChangeCountAndSaveCubit() : super(ChangeCountAndSaveInitial());
   int count = 0;
-  late SharedPreferences storage;
   void increaseCount() {
     count = count + 1;
-    storage.setInt('count', count);
+    CacheHelper.saveData(key: 'count', value: count);
     emit(ChangeCountAndSaveSuccess());
   }
 
-  init() async{
-    storage=await SharedPreferences.getInstance();
-    count = storage.getInt('count') ?? 0;
-    emit( ChangeCountAndSaveSuccess());
+  init() {
+    count = CacheHelper.getData(key: 'count') ?? 0;
+    emit(ChangeCountAndSaveSuccess());
   }
-  void reset(){
-    count=0;
-    storage.setInt('count', count);
+
+  void reset() {
+    count = 0;
+    CacheHelper.saveData(key: 'count', value: count);
     emit(ChangeCountAndSaveSuccess());
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:muslim/core/constants/azkar_constants.dart';
 import 'package:muslim/core/utils/app_router.dart';
+import 'package:muslim/features/azkar/presentation/views/sebaha_view.dart';
 import 'package:muslim/features/azkar/presentation/views/widget/custom_card_zekr.dart';
 
 class AzkarBodyView extends StatelessWidget {
@@ -21,7 +22,13 @@ class AzkarBodyView extends StatelessWidget {
               return CustomCardZekr(
                 title: kAzkarCategory[index],
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.kZekrCategoryView,extra: kAzkarCategory[index]);
+                  if (kAzkarCategory[index] == 'سبحة') {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SebahaView()));
+                  } else {
+                    GoRouter.of(context).push(AppRouter.kZekrCategoryView,
+                        extra: kAzkarCategory[index]);
+                  }
                 },
               );
             },
